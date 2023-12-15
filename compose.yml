@@ -1,0 +1,10 @@
+services:
+  sql:
+    build: ./sqldb
+    ports:
+      - 5432:5432
+
+  nosql:
+    build: ./nosqldb
+    ports:
+      - 27017: 27017

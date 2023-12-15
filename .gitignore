@@ -1,0 +1,14 @@
+# TODO
+TODO
+
+# Environments
+.venv/
+
+# Cache
+__pycache__/
+
+# Node
+node_modules/
+
+# Rust
+target/
