@@ -8,3 +8,13 @@ services:
     build: ./nosqldb
     ports:
       - 27017: 27017
+
+  queue:
+    build: ./subscriber
+    ports:
+      - 5672:5672
+
+  gateway:
+    build: ./nginx
+    ports:
+      - 8080:80
