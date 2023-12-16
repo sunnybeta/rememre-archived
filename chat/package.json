@@ -1,8 +1,8 @@
 {
   "name": "chat",
   "version": "1.0",
-  "description": "",
-  "main": "app.js.js",
+  "description": "Chat Service for Rememre",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
     "prod": "node app.js"
@@ -18,6 +18,8 @@
     "nodemon": "^3.0.2"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "zod": "^3.22.4"
   }
 }
