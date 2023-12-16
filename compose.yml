@@ -1,20 +1,35 @@
 services:
   sql:
-    build: ./sqldb
+    container_name: rememre-sql
+    build: ./postgres
     ports:
       - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./postgres/volume:/var/lib/postgresql/data
 
-  nosql:
-    build: ./nosqldb
+  user:
+    container_name: rememre-user
+    build: ./user
     ports:
-      - 27017: 27017
+      - 8001:8000
+    environment:
+      - POSTGRES_HOST = rememre-sql
+    depends_on:
+      sql
 
-  queue:
-    build: ./subscriber
-    ports:
-      - 5672:5672
+        # nosql:
+        #   build: ./mongo
+        #   ports:
+        #     - 27017: 27017
 
-  gateway:
-    build: ./nginx
-    ports:
-      - 8080:80
+        # queue:
+        #   build: ./rabbitmq
+        #   ports:
+        #     - 5672:5672
+
+        # gateway:
+        #   build: ./nginx
+        #   ports:
+        #     - 8080:80
